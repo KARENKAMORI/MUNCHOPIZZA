@@ -3,6 +3,7 @@ import { useState } from 'react'
 import api from "../api"
 import { useNavigate } from 'react-router-dom'
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants'
+import LoadingIndicator from "./LoadingIndicator";
 
 const Form = ({ route, method }) => {
     const [username, setUsername] = useState("");
@@ -60,6 +61,7 @@ const Form = ({ route, method }) => {
       className= {design}
       />
       </div>
+      {loading && <LoadingIndicator />}
       <div className='mt-5'>
         <button className='border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold' type="submit">{name}</button>
       </div>
